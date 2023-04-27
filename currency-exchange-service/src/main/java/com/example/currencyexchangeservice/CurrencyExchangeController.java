@@ -23,6 +23,7 @@ public class CurrencyExchangeController {
             @PathVariable String from,
             @PathVariable String to) {
         String port = environment.getProperty("local.server.port");
+        System.out.println("/n/n/n/nPort:" + port);
 //        CurrencyExchange currencyExchange =
 //                new CurrencyExchange(1000L, from, to, BigDecimal.valueOf(65), port);
         Optional<CurrencyExchange> optionalCurrencyExchange = currencyExchangeRepo.findByFromAndTo(from, to);

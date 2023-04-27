@@ -19,17 +19,17 @@ public class CircuitBreakerController {
 //    @Retry(name = "sample-api", fallbackMethod = "hardcodedResponse")
 
     //Breaks the circuit after trying some calls
-//    @CircuitBreaker(name = "default", fallbackMethod = "hardcodedResponse")
+    @CircuitBreaker(name = "default", fallbackMethod = "hardcodedResponse")
 
     //number of calls allowed per unit time
 //    @RateLimiter(name = "default")
 
     //number of concurrent calls allowed
-    @Bulkhead(name = "default")
+//    @Bulkhead(name = "default")
     @GetMapping("/sample-api")
     public String sampleApi() {
         logger.info("\n\n Sample api url received \n\n");
-//        ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/dummy-url", String.class);
+        ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/dummy-url", String.class);
 //        return forEntity.getBody();
         return "sample-api";
     }
